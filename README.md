@@ -1,1 +1,1 @@
-# Matting-Anything-2
+Code (including training code) will be released soon.
