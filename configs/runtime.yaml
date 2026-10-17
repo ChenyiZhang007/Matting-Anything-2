@@ -1,0 +1,14 @@
+runtime:
+  show_progress: true
+  device: cuda:0
+  visible_devices: null
+  precision: bfloat16
+  allow_tf32: false
+  offload_video_to_cpu: true
+  offload_state_to_cpu: false
+  async_loading_frames: true
+  seed: 123
+launcher:
+  processes: 1
+  master_address: 127.0.0.1
+  master_port: null

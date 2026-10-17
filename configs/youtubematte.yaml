@@ -1,0 +1,21 @@
+defaults:
+- inference.yaml
+- youtubematte_prompts.yaml
+
+benchmark:
+  data_root: datasets/YouTubeMatte/youtubematte_1920x1080
+  rgb_directory: har
+  alpha_directory: pha
+  resolution: [1080, 1920]  # Native H, W; scoring never resizes alpha.
+  frames_per_clip: 100
+  clips: null  # null selects all 64; otherwise a list such as [youtubematte_motion/0000].
+  prompt_mode: box_click  # box_click or mask (a binary first-frame segmentation mask).
+  first_frame_mask_root: datasets/YouTubeMatte_first_frame_seg_mask/youtubematte_1920x1080
+  metrics_device: ${runtime.device}
+  gradient_sigma: 1.4
+
+runtime:
+  seed: 2026
+
+output:
+  directory: outputs/youtubematte

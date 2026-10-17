@@ -1,0 +1,8 @@
+defaults:
+- youtubematte.yaml
+
+benchmark:
+  prompt_mode: mask
+
+output:
+  directory: outputs/youtubematte_mask

@@ -1,0 +1,45 @@
+defaults:
+- inference.yaml
+web:
+  host: 127.0.0.1
+  port: 7860
+  access_log: false
+  show_progress: false  # The browser displays frame progress instead of terminal bars.
+  poll_interval_ms: 1000
+  resolution_presets:
+    1K: 1024
+    2K: 2048
+    4K: 4096
+  default_resolution: 2K
+  work_directory: outputs/web
+  max_upload_mb: 1024
+  max_duration_seconds: 600
+  max_sessions: 16
+  session_ttl_seconds: 86400
+  examples:
+    directory: assets  # Relative to the project root or installed package data.
+    thumbnail_size: 320
+    videos:
+    - id: example-1
+      name: Example 1
+      video: 15520421_1080_1920_30fps.mp4
+    - id: example-2
+      name: Example 2
+      video: 5385804-hd_1080_1920_25fps.mp4
+    - id: example-3
+      name: Example 3
+      video: 7424169-uhd_2160_3840_30fps.mp4
+    - id: example-4
+      name: Example 4
+      video: 9707085-uhd_2160_4096_25fps.mp4
+    - id: example-5
+      name: Example 5
+      video: 12128745_1080_1920_30fps.mp4
+  checkerboard_cell_size: 32
+  checkerboard_colors: [192, 240]
+  ffmpeg: ffmpeg
+  video_crf: 18
+  video_preset: fast
+  webm_fallback: true
+  webm_crf: 30
+  webm_cpu_used: 8

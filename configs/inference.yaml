@@ -1,0 +1,55 @@
+defaults:
+- models/mam2_hiera_large.yaml
+- models/mematte_small.yaml
+- runtime.yaml
+huggingface:
+  repo_id: Chenyi007/Matting-Anything-2
+  revision: 0e0a8d0d9034b00c4baca88f1a0bb1397e724905
+  cache_dir: null  # Use the standard Hugging Face cache, or set another directory.
+  local_files_only: false
+checkpoints:
+  main:
+    repo_id: ${huggingface.repo_id}
+    filename: mam2_main.pt
+    revision: ${huggingface.revision}
+    cache_dir: ${huggingface.cache_dir}
+    local_files_only: ${huggingface.local_files_only}
+    sha256: 65e3c27060febae474af1662d3f3f038f024de17715595ca61045efb357603b2
+  matter:
+    repo_id: ${huggingface.repo_id}
+    filename: mam2_matter.pth
+    revision: ${huggingface.revision}
+    cache_dir: ${huggingface.cache_dir}
+    local_files_only: ${huggingface.local_files_only}
+    sha256: 538cf871933dd0663a6bc28a4bec9b870cc2de909c7431b857b72ce427e82a09
+model:
+  pdd_extra_args:
+    dynamic_multimask_via_stability: true
+    dynamic_multimask_stability_delta: 0.05
+    dynamic_multimask_stability_thresh: 0.98
+  binarize_mask_from_pts_for_mem_enc: true
+  # Historical evaluation silently skipped hole filling because its CUDA
+  # extension could not load. Keep that effective behavior; set 8 to enable
+  # portable OpenCV hole filling explicitly.
+  fill_hole_area: 0
+inference:
+  matter_max_size: null  # Long-edge cap; preserves aspect ratio and never upscales.
+  matter_resolution:
+  - 1080
+  - 1920
+input:
+  source: ???
+  name: example
+  manifest: null
+  prompts:
+  - object_id: 1
+    frame_index: 0
+    box:
+    - 100
+    - 100
+    - 500
+    - 500
+output:
+  directory: outputs
+  save_masks: false
+  save_trimaps: false

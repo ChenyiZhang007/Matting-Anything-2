@@ -1,0 +1,36 @@
+paths:
+  data_root: ???
+  backgrounds: ${paths.data_root}/train2017
+  sam2_checkpoint: checkpoints/sam2.1_hiera_large.pt
+  vm_foregrounds: ${paths.data_root}/VideoMatting108/FG/FG_done
+  vm_backgrounds: ${paths.data_root}/VideoMatting108/BG/BG_done2
+  vm_correspondence: ${paths.data_root}/VideoMatting108/frame_corr.json
+  vm_split: ${paths.data_root}/VideoMatting108/train_videos.txt
+  vos_images: ${paths.data_root}/MOSE/train/JPEGImages
+  vos_masks: ${paths.data_root}/MOSE/train/Annotations
+  vos_split: ${package:training/assets/MOSE_sample_train_list.txt}
+data:
+  segmentation_sources:
+  - images: ${paths.data_root}/DIS5K/DIS-TR/im
+    alphas: ${paths.data_root}/DIS5K/DIS-TR/gt
+    file_list: ${package:training/assets/dis.txt}
+  matting_sources:
+  - images: ${paths.data_root}/Combined_Dataset/Training_set/combined/fg
+    alphas: ${paths.data_root}/Combined_Dataset/Training_set/combined/alpha
+  - images: ${paths.data_root}/Distinctions-646/Train/FG
+    alphas: ${paths.data_root}/Distinctions-646/Train/GT
+  - images: ${paths.data_root}/AM-2K/train/original
+    alphas: ${paths.data_root}/AM-2K/train/mask
+    composite_probability: 0.5
+    limit: 1000
+  - images: ${paths.data_root}/P3M-10k/train/blurred_image
+    alphas: ${paths.data_root}/P3M-10k/train/mask
+    composite_probability: 0.5
+    limit: 1000
+  - images: ${paths.data_root}/Transparent-460/Train/fg
+    alphas: ${paths.data_root}/Transparent-460/Train/alpha
+    composite_probability: 0.5
+    exclude:
+    - pascal-meier-1uVCTVSn-2o-unsplash
+    - o_0c8f03f0
+    - paul-wong-uKWdq9TcaiI-unsplash

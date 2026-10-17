@@ -1,0 +1,14 @@
+defaults:
+- train_main.yaml
+scratch:
+  base_lr: 0.0004
+data:
+  segmentation_sources:
+  - images: ${paths.data_root}/DIS5K/DIS-TR/im
+    alphas: ${paths.data_root}/DIS5K/DIS-TR/gt
+    file_list: ${package:training/assets/dis.txt}
+  - images: ${paths.data_root}/DUTS-TR/DUTS-TR-Image
+    alphas: ${paths.data_root}/DUTS-TR/DUTS-TR-Mask
+    file_list: ${package:training/assets/duts.txt}
+launcher:
+  experiment_log_dir: outputs/train_main_paper

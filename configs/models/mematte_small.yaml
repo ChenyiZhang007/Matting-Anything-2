@@ -1,0 +1,50 @@
+matter:
+  _target_: mam2.models.matting.LightweightMatter
+  backbone:
+    _target_: mam2.models.mematte.vit.ViT
+    in_chans: 4
+    img_size: 1024
+    patch_size: 16
+    embed_dim: 384
+    depth: 12
+    num_heads: 6
+    drop_path_rate: 0
+    window_size: 14
+    mlp_ratio: 4
+    qkv_bias: true
+    norm_layer:
+      _target_: functools.partial
+      _args_:
+      - _target_: hydra.utils.get_class
+        path: torch.nn.LayerNorm
+      eps: 1.0e-06
+    window_block_indexes:
+    - 0
+    - 1
+    - 3
+    - 4
+    - 6
+    - 7
+    - 9
+    - 10
+    residual_block_indexes:
+    - 2
+    - 5
+    - 8
+    - 11
+    use_rel_pos: true
+    out_feature: last_feat
+    topk: 0.25
+    multi_score: true
+    max_number_token: 12000
+  decoder:
+    _target_: mam2.models.mematte.detail_capture.Detail_Capture
+  pixel_mean:
+  - 0.485
+  - 0.456
+  - 0.406
+  pixel_std:
+  - 0.229
+  - 0.22399999999999998
+  - 0.225
+  size_divisibility: 32

@@ -1,0 +1,16 @@
+paths:
+  source_root: ???  # Extracted VM108 root containing FG/FG_done and BG/BG_done2.
+  output_root: ???  # A separate, prepared VideoMatting108 directory.
+  foregrounds: ${paths.source_root}/FG/FG_done
+  backgrounds: ${paths.source_root}/BG/BG_done2
+  correspondence: ${package:training/assets/vm108/frame_corr.json}
+  train_split: ${package:training/assets/vm108/train_videos.txt}
+  val_split: ${package:training/assets/vm108/val_videos.txt}
+preparation:
+  split: all  # all, train (80 videos), or val (28 videos).
+  rgba_subdirectory: auto  # auto accepts frames directly in <video>/ or <video>/rgba/.
+  background_mode: symlink  # symlink keeps source backgrounds in place; copy is standalone.
+  workers: 8
+  png_compression: 3  # 0-9; all levels preserve RGB and alpha exactly.
+  resume: false  # Verify existing PNG pixels and write missing frames when true.
+  dry_run: false  # Check mapped input paths and print counts without writing files.

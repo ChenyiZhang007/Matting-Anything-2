@@ -1,0 +1,562 @@
+# Fixed first-frame boxes and clicks from the checkpoint-100 evaluation.
+# Coordinates are in native 1920x1080 pixels; no later-frame ground truth is used.
+benchmark:
+  prompts:
+    youtubematte_motion/0000:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 943.0
+      - 61.0
+      - 1685.0
+      - 1079.0
+    youtubematte_motion/0001:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 947.0
+      - 58.0
+      - 1752.0
+      - 1079.0
+    youtubematte_motion/0002:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 591.0
+      - 48.0
+      - 1454.0
+      - 1079.0
+    youtubematte_motion/0003:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 653.0
+      - 65.0
+      - 1364.0
+      - 1079.0
+    youtubematte_motion/0004:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 550.0
+      - 69.0
+      - 1480.0
+      - 1079.0
+    youtubematte_motion/0005:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 118.0
+      - 0.0
+      - 1771.0
+      - 1079.0
+    youtubematte_motion/0006:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 615.0
+      - 133.0
+      - 1667.0
+      - 1079.0
+    youtubematte_motion/0007:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 397.0
+      - 93.0
+      - 1631.0
+      - 1079.0
+    youtubematte_motion/0008:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 554.0
+      - 19.0
+      - 1524.0
+      - 1079.0
+    youtubematte_motion/0009:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 734.0
+      - 87.0
+      - 1664.0
+      - 1079.0
+    youtubematte_motion/0010:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 840.0
+      - 35.0
+      - 1686.0
+      - 1079.0
+    youtubematte_motion/0011:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 598.0
+      - 51.0
+      - 1412.0
+      - 1079.0
+    youtubematte_motion/0012:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 622.0
+      - 63.0
+      - 1797.0
+      - 1079.0
+    youtubematte_motion/0013:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 634.0
+      - 74.0
+      - 1370.0
+      - 1079.0
+    youtubematte_motion/0014:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 773.0
+      - 136.0
+      - 1165.0
+      - 1006.0
+    youtubematte_motion/0015:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 604.0
+      - 111.0
+      - 1749.0
+      - 1079.0
+    youtubematte_motion/0016:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 10.0
+      - 93.0
+      - 1298.0
+      - 1079.0
+    youtubematte_motion/0017:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 553.0
+      - 49.0
+      - 1397.0
+      - 1079.0
+    youtubematte_motion/0018:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 216.0
+      - 28.0
+      - 1454.0
+      - 1079.0
+    youtubematte_motion/0019:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 613.0
+      - 81.0
+      - 1411.0
+      - 1079.0
+    youtubematte_motion/0020:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 554.0
+      - 25.0
+      - 1605.0
+      - 1079.0
+    youtubematte_motion/0021:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 279.0
+      - 242.0
+      - 747.0
+      - 1079.0
+    youtubematte_motion/0022:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 884.0
+      - 28.0
+      - 1757.0
+      - 1079.0
+    youtubematte_motion/0023:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 0.0
+      - 0.0
+      - 1919.0
+      - 1079.0
+      points:
+      - - 900
+        - 750
+      - - 1300
+        - 450
+      labels:
+      - 1
+      - 1
+    youtubematte_motion/0024:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 206.0
+      - 0.0
+      - 1919.0
+      - 1079.0
+      points:
+      - - 600
+        - 750
+      labels:
+      - 1
+    youtubematte_motion/0025:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 409.0
+      - 24.0
+      - 1425.0
+      - 1079.0
+    youtubematte_motion/0026:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 581.0
+      - 180.0
+      - 1292.0
+      - 1079.0
+    youtubematte_motion/0027:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 733.0
+      - 64.0
+      - 1466.0
+      - 1079.0
+    youtubematte_motion/0028:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 568.0
+      - 58.0
+      - 1266.0
+      - 1079.0
+    youtubematte_motion/0029:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 860.0
+      - 87.0
+      - 1121.0
+      - 974.0
+    youtubematte_motion/0030:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 1420.0
+      - 84.0
+      - 1910.0
+      - 1040.0
+      points:
+      - - 1520
+        - 425
+      labels:
+      - 1
+    youtubematte_motion/0031:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 593.0
+      - 170.0
+      - 1228.0
+      - 1079.0
+    youtubematte_static/0000:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 943.0
+      - 61.0
+      - 1685.0
+      - 1079.0
+    youtubematte_static/0001:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 947.0
+      - 58.0
+      - 1752.0
+      - 1079.0
+    youtubematte_static/0002:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 591.0
+      - 48.0
+      - 1454.0
+      - 1079.0
+    youtubematte_static/0003:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 653.0
+      - 65.0
+      - 1364.0
+      - 1079.0
+    youtubematte_static/0004:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 550.0
+      - 69.0
+      - 1480.0
+      - 1079.0
+    youtubematte_static/0005:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 118.0
+      - 0.0
+      - 1771.0
+      - 1079.0
+    youtubematte_static/0006:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 615.0
+      - 133.0
+      - 1667.0
+      - 1079.0
+    youtubematte_static/0007:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 397.0
+      - 93.0
+      - 1631.0
+      - 1079.0
+    youtubematte_static/0008:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 554.0
+      - 19.0
+      - 1524.0
+      - 1079.0
+    youtubematte_static/0009:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 734.0
+      - 87.0
+      - 1664.0
+      - 1079.0
+    youtubematte_static/0010:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 840.0
+      - 35.0
+      - 1686.0
+      - 1079.0
+      points:
+      - - 1550
+        - 580
+      labels:
+      - 1
+    youtubematte_static/0011:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 598.0
+      - 51.0
+      - 1412.0
+      - 1079.0
+    youtubematte_static/0012:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 622.0
+      - 63.0
+      - 1797.0
+      - 1079.0
+    youtubematte_static/0013:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 634.0
+      - 74.0
+      - 1370.0
+      - 1079.0
+    youtubematte_static/0014:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 773.0
+      - 133.0
+      - 1166.0
+      - 1005.0
+    youtubematte_static/0015:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 604.0
+      - 111.0
+      - 1749.0
+      - 1079.0
+    youtubematte_static/0016:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 10.0
+      - 93.0
+      - 1298.0
+      - 1079.0
+    youtubematte_static/0017:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 553.0
+      - 49.0
+      - 1397.0
+      - 1079.0
+    youtubematte_static/0018:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 216.0
+      - 28.0
+      - 1454.0
+      - 1079.0
+    youtubematte_static/0019:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 613.0
+      - 81.0
+      - 1411.0
+      - 1079.0
+    youtubematte_static/0020:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 554.0
+      - 25.0
+      - 1605.0
+      - 1079.0
+      points:
+      - - 1000
+        - 880
+      labels:
+      - 1
+    youtubematte_static/0021:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 279.0
+      - 242.0
+      - 747.0
+      - 1079.0
+    youtubematte_static/0022:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 884.0
+      - 28.0
+      - 1757.0
+      - 1079.0
+    youtubematte_static/0023:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 0.0
+      - 0.0
+      - 1919.0
+      - 1079.0
+      points:
+      - - 900
+        - 750
+      - - 1300
+        - 450
+      labels:
+      - 1
+      - 1
+    youtubematte_static/0024:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 206.0
+      - 0.0
+      - 1919.0
+      - 1079.0
+      points:
+      - - 600
+        - 750
+      labels:
+      - 1
+    youtubematte_static/0025:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 409.0
+      - 24.0
+      - 1425.0
+      - 1079.0
+    youtubematte_static/0026:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 581.0
+      - 180.0
+      - 1292.0
+      - 1079.0
+    youtubematte_static/0027:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 733.0
+      - 64.0
+      - 1466.0
+      - 1079.0
+    youtubematte_static/0028:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 568.0
+      - 58.0
+      - 1266.0
+      - 1079.0
+    youtubematte_static/0029:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 860.0
+      - 87.0
+      - 1121.0
+      - 974.0
+    youtubematte_static/0030:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 1420.0
+      - 84.0
+      - 1910.0
+      - 1040.0
+      points:
+      - - 1520
+        - 425
+      labels:
+      - 1
+    youtubematte_static/0031:
+    - object_id: 1
+      frame_index: 0
+      box:
+      - 593.0
+      - 170.0
+      - 1228.0
+      - 1079.0

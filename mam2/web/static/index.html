@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Matting Anything 2 · Studio</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/static/logo.png?v=transparent-20261017"
+    />
+    <link rel="stylesheet" href="/static/style.css?v=examples-five-20261017" />
+    <script src="/static/app.js?v=box-line-20261017" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Matting Anything 2 home">
+        <img
+          class="brand-logo"
+          src="/static/logo.png?v=transparent-20261017"
+          alt=""
+          width="1341"
+          height="1173"
+        />
+        <span class="brand-caption">Matting Anything <span>2</span></span>
+      </a>
+      <span class="local-badge"><i></i> Interactive studio</span>
+    </header>
+    <main>
+      <div class="workspace">
+        <section class="panel input-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Select your object</h2>
+            </div>
+            <span id="prompt-count" class="result-badge"
+              >No prompted frames</span
+            >
+          </div>
+          <div class="tools" id="tools">
+            <span class="guide-title">How to select</span>
+            <div class="tool-actions">
+              <button
+                id="clear-prompt"
+                title="Clear the points and box on this frame"
+                disabled
+              >
+                Clear prompt</button
+              ><button
+                id="clear-video"
+                title="Clear the video, all prompts and results"
+                disabled
+              >
+                Clear video
+              </button>
+            </div>
+            <div id="hint" class="prompt-guide">
+              <div class="prompt-legend" aria-label="Selection legend">
+                <span class="legend-item">
+                  <i
+                    class="legend-point legend-positive"
+                    aria-hidden="true"
+                  ></i>
+                  <span>Left click to include</span>
+                </span>
+                <span class="legend-item">
+                  <i
+                    class="legend-point legend-negative"
+                    aria-hidden="true"
+                  ></i>
+                  <span>Right-click to exclude</span>
+                </span>
+                <span class="legend-item">
+                  <i class="legend-box" aria-hidden="true"></i>
+                  <span>Drag to draw a box</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="image-area">
+            <div
+              id="dropzone"
+              tabindex="0"
+              role="button"
+              aria-label="Upload a video"
+              class="dropzone"
+            >
+              <div class="upload-icon">↥</div>
+              <h3>Drop your video here</h3>
+              <p>or <span>browse files</span></p>
+              <div class="file-hint">MP4, MOV, WEBM & more</div>
+            </div>
+            <canvas
+              id="canvas"
+              hidden
+              aria-label="Video frame: left click for a foreground point, right-click for a background point, or drag a box"
+              aria-describedby="hint"
+            ></canvas>
+            <div id="selection-loading" class="selection-loading" hidden>
+              <span class="spinner"></span>
+              <span id="loading-label">Updating mask…</span>
+            </div>
+          </div>
+          <input id="file" type="file" accept="video/*,.mkv,.avi" hidden />
+          <div id="examples" class="examples" hidden>
+            <h3 id="examples-heading">Try an example</h3>
+            <div
+              id="example-list"
+              class="example-list"
+              role="group"
+              aria-labelledby="examples-heading"
+            ></div>
+          </div>
+          <div class="timeline" id="timeline" hidden>
+            <div class="timeline-labels">
+              <span id="frame-position">Frame 1</span>
+              <span id="time-position">00:00.000</span>
+            </div>
+            <div class="timeline-track">
+              <input
+                id="frame-slider"
+                type="range"
+                min="0"
+                max="0"
+                step="1"
+                value="0"
+                aria-label="Video frame timeline"
+                disabled
+              />
+              <div
+                id="prompt-markers"
+                class="prompt-markers"
+                aria-hidden="true"
+              ></div>
+            </div>
+          </div>
+          <div class="input-bottom">
+            <div class="resolution-row">
+              <label for="resolution">Resolution limit</label>
+              <select
+                id="resolution"
+                aria-label="Resolution limit"
+                disabled
+              ></select>
+              <span id="resolution-hint"
+                >Higher resolution slows inference.</span
+              >
+            </div>
+            <button id="start" class="start-button" disabled>
+              <span class="start-label"
+                ><span aria-hidden="true">▶</span> Start matting</span
+              >
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </section>
+        <section class="panel output-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Result</h2>
+            </div>
+            <span id="result-badge" class="result-badge"
+              >Awaiting selection</span
+            >
+          </div>
+          <div class="output-tools">
+            <div class="view-switch" role="group" aria-label="Result view">
+              <button
+                id="foreground-view"
+                class="active"
+                aria-pressed="true"
+                disabled
+              >
+                Foreground</button
+              ><button id="alpha-view" aria-pressed="false" disabled>
+                Alpha matte
+              </button>
+            </div>
+            <a id="download" class="download" hidden download>↓ Download</a>
+          </div>
+          <div class="result-area checkerboard">
+            <div id="result-empty" class="result-empty">
+              <div class="result-icon">✳</div>
+              <h3>Make room for your subject</h3>
+              <p>Your finished matte will appear here.</p>
+            </div>
+            <video id="result" controls playsinline loop hidden></video>
+            <div id="processing" class="processing" hidden>
+              <span class="spinner"></span>
+              <h3 id="stage">Preparing your video</h3>
+              <p id="frame-progress">Every frame, every detail.</p>
+              <div class="progress-track"><div id="progress-bar"></div></div>
+            </div>
+          </div>
+          <div class="frame-footer">
+            <span id="output-meta">Full video · original frame rate</span
+            ><span class="output-note">Alpha + foreground</span>
+          </div>
+        </section>
+      </div>
+      <div id="notice" role="status" aria-live="polite">
+        Ready when you are.
+      </div>
+    </main>
+  </body>
+</html>

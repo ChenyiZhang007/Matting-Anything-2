@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matting-anything-2"
+version = "0.1.0"
+description = "Matting Anything 2: Towards Video Matting for Anything"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+    "torch>=2.5.1", "torchvision>=0.20.1", "numpy>=1.24,<2",
+    "Pillow>=9.4", "opencv-python>=4.8", "hydra-core>=1.3.2",
+    "omegaconf>=2.3", "peft>=0.15.2", "timm>=0.9",
+    "fvcore>=0.1.5", "iopath>=0.1.10", "fairscale>=0.4.13",
+    "einops>=0.7", "tqdm>=4.66", "tensordict>=0.6",
+    "huggingface-hub>=0.34",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.9"]
+demo = ["fastapi>=0.115", "uvicorn>=0.30", "python-multipart>=0.0.12", "pydantic>=2"]
+
+[project.scripts]
+mam2-infer = "mam2.inference:main"
+mam2-train = "mam2.training.launch:main"
+mam2-demo = "mam2.web.app:main"
+mam2-download = "mam2.weights:main"
+mam2-benchmark = "mam2.benchmark:main"
+mam2-prepare-vm108 = "mam2.data.prepare_vm108:main"
+
+[tool.setuptools]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mam2*", "sam2*"]
+
+[tool.setuptools.package-data]
+"mam2.training" = ["assets/*.txt", "assets/vm108/*.json", "assets/vm108/*.txt"]
+"mam2.web" = ["static/*.html", "static/*.css", "static/*.js", "static/*.png"]
+
+[tool.setuptools.data-files]
+"share/mam2/configs" = ["configs/*.yaml"]
+"share/mam2/configs/models" = ["configs/models/*.yaml"]
+"share/mam2/assets" = ["assets/*.mp4", "assets/*.png"]
+"share/mam2/docs" = ["docs/*.md"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.format]
+docstring-code-format = true
